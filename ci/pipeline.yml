@@ -3,25 +3,25 @@ resources:
 - name: pal-tracker
   type: git
   source:
-    uri: {{github-repository}}
+    uri: git@github.com:clementkng/pal-tracker.git
     branch: master
     private_key: {{github-private-key}}
 
 - name: pal-tracker-artifacts
-  type: s3
+  type: google-cloud-storage
   source:
-    bucket: {{aws-bucket}}
-    regexp: releases/pal-tracker-(.*).jar
-    access_key_id: {{aws-access-key-id}}
-    secret_access_key: {{aws-secret-access-key}}
+    bucket: triage-pal-tracker
+    regexp: red/releases/pal-tracker-(.*).jar
+    json_key: gcp-key
 
 - name: version
   type: semver
   source:
-    bucket: {{aws-bucket}}
-    key: pal-tracker/version
+    driver: gcs
+    bucket: triage-pal-tracker
+    key: red/versions/version
     access_key_id: {{aws-access-key-id}}
-    secret_access_key: {{aws-secret-access-key}}
+    json_key: gcp-key
 
 - name: review-deployment
   type: cf
@@ -30,7 +30,7 @@ resources:
     username: {{cf-username}}
     password: {{cf-password}}
     organization: {{cf-org}}
-    space: review
+    space: red-review
 
 - name: production-deployment
   type: cf
@@ -39,7 +39,7 @@ resources:
     username: {{cf-username}}
     password: {{cf-password}}
     organization: {{cf-org}}
-    space: production
+    space: red
 
 jobs:
 - name: build
