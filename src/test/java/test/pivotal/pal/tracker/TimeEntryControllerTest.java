@@ -102,8 +102,8 @@ public class TimeEntryControllerTest {
         doReturn(null)
             .when(timeEntryRepository)
             .update(eq(1L), any(TimeEntry.class));
-
-        ResponseEntity response = controller.update(1L, new TimeEntry());
+        long projectId = 50;
+        ResponseEntity response = controller.update(1L, new TimeEntry(projectId));
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
