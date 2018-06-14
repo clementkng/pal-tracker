@@ -12,7 +12,7 @@ resources:
   source:
     bucket: triage-pal-tracker
     regexp: red/releases/pal-tracker-(.*).jar
-    json_key: gcp-key
+    json_key: {{gcp-key}}
 
 - name: version
   type: semver
@@ -20,8 +20,7 @@ resources:
     driver: gcs
     bucket: triage-pal-tracker
     key: red/versions/version
-    access_key_id: {{aws-access-key-id}}
-    json_key: gcp-key
+    json_key: {{gcp-key}}
 
 - name: review-deployment
   type: cf
@@ -39,7 +38,7 @@ resources:
     username: {{cf-username}}
     password: {{cf-password}}
     organization: {{cf-org}}
-    space: red
+    space: red-production
 
 jobs:
 - name: build
