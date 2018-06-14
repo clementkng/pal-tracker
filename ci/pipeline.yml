@@ -76,7 +76,7 @@ jobs:
       CF_USERNAME: {{cf-username}}
       CF_PASSWORD: {{cf-password}}
       CF_ORG: {{cf-org}}
-      CF_SPACE: review
+      CF_SPACE: red-review
       MYSQL_IP: {{mysql-ip}}
       DATABASE_NAME: {{review-database-name}}
       DATABASE_USERNAME: {{review-database-username}}
@@ -101,7 +101,7 @@ jobs:
       CF_USERNAME: {{cf-username}}
       CF_PASSWORD: {{cf-password}}
       CF_ORG: {{cf-org}}
-      CF_SPACE: review
+      CF_SPACE: red-production
       MYSQL_IP: {{mysql-ip}}
       DATABASE_NAME: {{review-database-name}}
       DATABASE_USERNAME: {{review-database-username}}
