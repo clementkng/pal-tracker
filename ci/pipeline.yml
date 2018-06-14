@@ -1,4 +1,10 @@
 ---
+resource_types:
+- name: google-cloud-storage
+  type: docker-image
+  source:
+    repository: frodenas/gcs-resource
+
 resources:
 - name: pal-tracker
   type: git
